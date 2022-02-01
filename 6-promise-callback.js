@@ -12,12 +12,12 @@ function getPost(){
     },2000)
 }
 
-function createPost(post, callback){
-
+function createPost(post){
     return new Promise((resolve, reject) =>{   
         setTimeout(() => {
             posts.push(post);
-            const error = false
+
+            const error = true
 
             if(!error){
                 resolve();
@@ -28,5 +28,7 @@ function createPost(post, callback){
     })
 }
 
-createPost({title: "Post 3", body: "Text post 3."}).then(getPost);
+createPost({title: "Post 3", body: "Text post 3."})
+    .then(getPost)
+    .catch(err => console.log(err));
 
