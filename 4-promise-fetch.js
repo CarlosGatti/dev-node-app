@@ -1,5 +1,5 @@
 // Real world example using node-fetch
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 const url = "https://jsonplaceholder.typicode.com/posts/1";
 
 

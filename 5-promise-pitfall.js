@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const fetch = require("cross-fetch");
 const url = "https://jsonplaceholder.typicode.com/posts/1";
 
 function isStatus200(res) {

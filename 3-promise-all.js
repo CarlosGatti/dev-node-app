@@ -1,3 +1,5 @@
+global.fetch = require("cross-fetch");
+
 // Promise.all()
 // Useful for aggregating the results of multiple promises
 // Returns a single Promise that fulfills when all of the Promises
@@ -16,19 +18,23 @@ const p2 = new Promise((resolve, reject) => {
 
 const p3 = 1000;
 
-// Promise.all([p1, p2, p3]).then((result) => {
-//     console.log(result)
-// }).catch((err) => {
-//     console.error('Promise.all rejection!', err)
-// });
+const p4 = fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json());
+
+
+
+ Promise.all([p1, p2, p3, p4]).then((result) => {
+     console.log(result)
+ }).catch((err) => {
+     console.error('Promise.all rejection!', err)
+ });
 
 
 // Promise.race()
 // Returns a promise that fulfills or rejects as soon as one of the
 // Promises in an iterable fulfills or rejects, with the value or
 // reason from that promise.
-Promise.race([p1, p2]).then((result) => {
-    console.log(result)
-}).catch((err) => {
-    console.error('Promise.all rejection!', err)
-});
+    //Promise.race([p1, p2, p3]).then((result) => {
+    //    console.log(result)
+    //}).catch((err) => {
+    //    console.error('Promise.all rejection!', err)
+    //});
